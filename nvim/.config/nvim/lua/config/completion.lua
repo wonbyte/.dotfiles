@@ -75,10 +75,10 @@ cmp.setup({
   experimental = {
     ghost_text = true,
   },
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
-
   -- installed sources
   sources = {
     { name = "nvim_lsp" },
