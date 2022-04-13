@@ -96,7 +96,7 @@ vim.api.nvim_set_keymap("n", "<leader>fb", [[<Cmd>lua require'telescope.builtin'
 })
 
 -- search dotfiles
-vim.api.nvim_set_keymap("n", "<leader>vrc", [[<Cmd>lua require'config.telescope'.search_dotfiles()<CR>]], {
+vim.api.nvim_set_keymap("n", "<leader>vrc", [[<Cmd>lua require'config.finder'.search_dotfiles()<CR>]], {
   noremap = true,
   silent = true,
 })
