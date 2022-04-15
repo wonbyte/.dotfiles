@@ -50,7 +50,11 @@ table.insert(path, "?.lua")
 table.insert(path, "?/init.lua")
 
 require("lspconfig").sumneko_lua.setup({
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    -- disable formatting, use diagnosticls
+    client.resolved_capabilities.document_formatting = false
+    on_attach(client, bufnr)
+  end,
   capabilities = capabilities,
   settings = {
     Lua = {
@@ -124,7 +128,7 @@ require("lspconfig").diagnosticls.setup({
   filetypes = {
     "javascript",
     "javascriptreact",
-    "go",
+    -- "go",
     "lua",
     "typescript",
     "typescriptreact",
@@ -171,7 +175,7 @@ require("lspconfig").diagnosticls.setup({
     filetypes = {
       javascript = "eslint_d",
       javascriptreact = "eslint_d",
-      go = "golangci_lint",
+      -- go = "golangci_lint",
       typescript = "eslint_d",
       typescriptreact = "eslint_d",
     },
