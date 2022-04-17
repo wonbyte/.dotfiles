@@ -116,7 +116,7 @@ require("lspconfig").rust_analyzer.setup({
 -- js/ts
 require("lspconfig").tsserver.setup({
   on_attach = function(client, bufnr)
-    -- disable tsserver formatting, use diagnosticls
+    -- disable formatting, use diagnosticls
     client.resolved_capabilities.document_formatting = false
     on_attach(client, bufnr)
   end,
