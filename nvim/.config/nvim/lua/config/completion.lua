@@ -84,7 +84,7 @@ cmp.setup({
     end, { "i", "s" }),
   }),
   experimental = {
-    ghost_text = true,
+    -- ghost_text = true,
   },
   window = {
     completion = cmp.config.window.bordered(),
