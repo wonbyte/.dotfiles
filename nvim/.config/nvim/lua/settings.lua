@@ -56,6 +56,7 @@ wo.colorcolumn = "120"
 o.clipboard = "unnamedplus"
 
 -- leader key
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 g.mapleader = " "
 g.maplocalleader = " "
 
@@ -75,19 +76,13 @@ set wildignore+=**/node_modules/*
 ]])
 
 -- highlight on yank
-vim.api.nvim_exec(
-  [[
-  augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-  augroup end
-]],
-  false
-)
-
--- Y yank until the end of line
-vim.api.nvim_set_keymap("n", "Y", "y$", {
-  noremap = true,
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = "*",
 })
 
 -- set list characters
