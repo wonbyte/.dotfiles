@@ -1,42 +1,21 @@
 -- clear highlights
-vim.api.nvim_set_keymap("n", "<C-h>", "<cmd>noh<CR>", {
-  noremap = true,
-})
+vim.keymap.set("n", "<C-h>", "<cmd>noh<CR>")
 
 -- <leader>, shows/hides hidden characters
-vim.api.nvim_set_keymap("n", "<space>,", ":set invlist<CR>", {
-  noremap = true,
-})
+vim.keymap.set("n", "<space>,", ":set invlist<CR>")
 
 -- no help when i fat finger F1
-vim.api.nvim_set_keymap("n", "<F1>", "<Esc>", {
-  noremap = false,
-})
-
-vim.api.nvim_set_keymap("i", "<F1>", "<Esc>", {
-  noremap = false,
-})
+vim.keymap.set("n", "<F1>", "<Nop>")
+vim.keymap.set("i", "<F1>", "<Nop>")
 
 -- https://vim.fandom.com/wiki/Simplifying_regular_expressions_using_magic_and_no-magic
-vim.api.nvim_set_keymap("n", "?", "?\\v", {
-  noremap = true,
-})
-vim.api.nvim_set_keymap("n", "/", "/\\v", {
-  noremap = true,
-})
-
-vim.api.nvim_set_keymap("c", "%s/", "%sm/", {
-  noremap = true,
-})
+vim.keymap.set("n", "?", "?\\v")
+vim.keymap.set("n", "/", "/\\v")
+vim.keymap.set("c", "%s/", "%sm/")
 
 -- better indenting
-vim.api.nvim_set_keymap("v", "<", "<gv", {
-  noremap = true,
-})
-
-vim.api.nvim_set_keymap("v", ">", ">gv", {
-  noremap = true,
-})
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
 
 -- toggle to enable/disable mouse mode
 ToggleMouse = function()
@@ -50,77 +29,36 @@ ToggleMouse = function()
 end
 
 -- enable mouse support
-vim.api.nvim_set_keymap("n", "<F10>", "<cmd>lua ToggleMouse()<CR>", {
-  noremap = true,
-})
+vim.keymap.set("n", "<F10>", "<cmd>lua ToggleMouse()<CR>")
 
 -- git branches
-vim.api.nvim_set_keymap("n", "<leader>gc", [[<Cmd>lua require'telescope.builtin'.git_branches()<CR>]], {
-  noremap = true,
-  silent = true,
-})
+vim.keymap.set("n", "<leader>gb", require("telescope.builtin").git_branches)
 
 -- git commits
-vim.api.nvim_set_keymap("n", "<leader>gl", [[<Cmd>lua require'telescope.builtin'.git_commits()<CR>]], {
-  noremap = true,
-  silent = true,
-})
+vim.keymap.set("n", "<leader>gc", require("telescope.builtin").git_commits)
 
 -- git status <tab> to toggle staging
-vim.api.nvim_set_keymap("n", "<leader>gs", [[<Cmd>lua require'telescope.builtin'.git_status()<CR>]], {
-  noremap = true,
-  silent = true,
-})
+vim.keymap.set("n", "<leader>gs", require("telescope.builtin").git_status)
+
+-- find files current buffer
+vim.keymap.set("n", "<leader>fb", require("telescope.builtin").current_buffer_fuzzy_find)
 
 -- find files
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>ff",
-  [[<Cmd>lua require'telescope.builtin'.find_files({file_ignore_patterns={'.git', 'target', 'node_modules'}})<CR>]],
-  {
-    noremap = true,
-    silent = true,
-  }
-)
+vim.keymap.set("n", "<leader>ff", function()
+  require("telescope.builtin").find_files({ file_ignore_patterns = { ".git", "target", "node_modules" } })
+end)
 
 -- live grep
-vim.api.nvim_set_keymap("n", "<leader>fg", [[<Cmd>lua require'telescope.builtin'.live_grep()<CR>]], {
-  noremap = true,
-  silent = true,
-})
+vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep)
 
 -- buffers
-vim.api.nvim_set_keymap("n", "<leader>fb", [[<Cmd>lua require'telescope.builtin'.buffers()<CR>]], {
-  noremap = true,
-  silent = true,
-})
+vim.keymap.set("n", "<leader>cb", require("telescope.builtin").buffers)
 
 -- search dotfiles
-vim.api.nvim_set_keymap("n", "<leader>vrc", [[<Cmd>lua require'config.finder'.search_dotfiles()<CR>]], {
-  noremap = true,
-  silent = true,
-})
+vim.keymap.set("n", "<leader>rc", require("config.finder").search_dotfiles)
 
 -- grep word under cursor
-vim.api.nvim_set_keymap("n", "<leader>gw", [[<Cmd>lua require'telescope.builtin'.grep_string()<CR>]], {
-  noremap = true,
-  silent = true,
-})
-
--- open file in directory of current file
-vim.api.nvim_set_keymap("n", "<leader>ofe", ":e %:h/", {
-  noremap = false,
-  silent = false,
-})
-
--- open file in vertical split
-vim.api.nvim_set_keymap("n", "<leader>ofv", ":vs %:h/", {
-  noremap = false,
-  silent = false,
-})
+vim.keymap.set("n", "<leader>gw", require("telescope.builtin").grep_string)
 
 -- telescopic johnson approved
-vim.api.nvim_set_keymap("n", "<leader>hh", ":Telescope help_tags<CR>", {
-  noremap = false,
-  silent = false,
-})
+vim.keymap.set("n", "<leader>hh", ":Telescope help_tags<CR>")
