@@ -1,5 +1,5 @@
 -- see `:help vim.diagnostic.*` for documentation on any of the below functions
--- Diagnostic keymaps
+-- diagnostic keymaps
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
@@ -43,7 +43,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 -- lua
--- Make runtime files discoverable to the server
+-- make runtime files discoverable to the server
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
