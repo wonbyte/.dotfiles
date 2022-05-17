@@ -62,3 +62,9 @@ vim.keymap.set("n", "<leader>gw", require("telescope.builtin").grep_string)
 
 -- telescopic johnson approved
 vim.keymap.set("n", "<leader>hh", ":Telescope help_tags<CR>")
+
+-- see `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)

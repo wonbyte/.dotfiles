@@ -1,9 +1,7 @@
--- see `:help vim.diagnostic.*` for documentation on any of the below functions
--- diagnostic keymaps
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+-- see `:help vim.diagnostic.config`
+vim.diagnostic.config({
+  virtual_text = false,
+})
 
 -- use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -28,7 +26,23 @@ local on_attach = function(_, bufnr)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
   vim.keymap.set("n", "<leader>so", require("telescope.builtin").lsp_document_symbols, opts)
-  vim.keymap.set("n", "<leader>f", vim.lsp.buf.formatting)
+  vim.keymap.set("n", "<leader>f", vim.lsp.buf.formatting, opts)
+
+  -- show line diagnostics automatically in hover window
+  vim.api.nvim_create_autocmd("CursorHold", {
+    buffer = bufnr,
+    callback = function()
+      local hover_opts = {
+        focusable = false,
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        border = "rounded",
+        source = "always",
+        prefix = " ",
+        scope = "cursor",
+      }
+      vim.diagnostic.open_float(nil, hover_opts)
+    end,
+  })
 end
 
 -- enable cmp
