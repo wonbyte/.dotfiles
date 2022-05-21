@@ -40,6 +40,4 @@ alias vim="nvim"
 
 # exports
 export DOTFILES=$HOME/.dotfiles
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
 export VAULT_ADDR=https://prod.vault.conde.io:443
