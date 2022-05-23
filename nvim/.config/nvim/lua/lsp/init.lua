@@ -1,8 +1,3 @@
--- see `:help vim.diagnostic.config`
-vim.diagnostic.config({
-  virtual_text = false,
-})
-
 -- use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(_, bufnr)
@@ -93,35 +88,24 @@ require("lspconfig").sumneko_lua.setup({
   },
 })
 
--- go
-require("lspconfig").gopls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    gopls = {
-      analyses = {
-        unusedparams = true,
-      },
-      staticcheck = true,
-    },
-  },
-})
-
 -- rust
 require("lspconfig").rust_analyzer.setup({
   on_attach = on_attach,
   capabilities = capabilities,
+  handlers = {
+    ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+      -- Disable virtual_text
+      virtual_text = false,
+      severity_sort = true,
+    }),
+  },
   settings = {
     ["rust-analyzer"] = {
-      assist = {
-        importGranularity = "module",
-        importPrefix = "by_self",
-      },
-      cargo = {
-        loadOutDirsFromCheck = true,
-      },
-      procMacro = {
-        enable = true,
+      cargo = { allFeatures = true },
+      completion = {
+        postfix = {
+          enable = false,
+        },
       },
     },
   },
@@ -142,7 +126,6 @@ require("lspconfig").diagnosticls.setup({
   filetypes = {
     "javascript",
     "javascriptreact",
-    -- "go",
     "lua",
     "typescript",
     "typescriptreact",
@@ -170,26 +153,10 @@ require("lspconfig").diagnosticls.setup({
         },
         securities = { ["1"] = "warning", ["2"] = "error" },
       },
-      golangci_lint = {
-        sourceName = "golangci_lint",
-        command = "golangci-lint",
-        args = { "run", "--out-format", "json" },
-        debounce = 100,
-        parseJson = {
-          sourceNameFilter = true,
-          sourceName = "Pos.Filename",
-          errorsRoot = "Issues",
-          line = "Pos.Line",
-          column = "Pos.Column",
-          message = "[golangci_lint] ${Text} [${FromLinter}]",
-        },
-        rootPatterns = { ".git", "go.mod" },
-      },
     },
     filetypes = {
       javascript = "eslint_d",
       javascriptreact = "eslint_d",
-      -- go = "golangci_lint",
       typescript = "eslint_d",
       typescriptreact = "eslint_d",
     },
