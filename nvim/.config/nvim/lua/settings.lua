@@ -60,6 +60,11 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 g.mapleader = " "
 g.maplocalleader = " "
 
+-- file explorer
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
+
 -- handle spaces and indents
 bo.shiftwidth = 4
 bo.tabstop = 4
