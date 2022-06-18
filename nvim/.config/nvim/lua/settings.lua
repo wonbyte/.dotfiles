@@ -8,6 +8,9 @@ local opt = vim.opt
 --cmd("syntax enable")
 --cmd("filetype plugin indent on")
 
+-- rgb colors
+o.termguicolors = true
+
 -- show relative line numbers
 wo.number = true
 wo.relativenumber = true
