@@ -5,9 +5,8 @@ local wo = vim.wo
 local bo = vim.bo
 local opt = vim.opt
 
-cmd("syntax enable")
-cmd("filetype plugin indent on")
-cmd("set noswapfile")
+--cmd("syntax enable")
+--cmd("filetype plugin indent on")
 
 -- show relative line numbers
 wo.number = true
@@ -21,10 +20,19 @@ o.scrolloff = 4
 wo.scrolloff = 4
 
 -- make cmd line little taller
-o.cmdheight = 2
+o.cmdheight = 1
 
 -- don't need backups when git
 g.nowb = true
+
+-- no swap file
+o.swapfile = false
+
+-- no backup file
+o.backup = false
+
+-- no undo file
+o.undofile = true
 
 -- incremental live completion
 o.inccommand = "nosplit"
@@ -61,9 +69,9 @@ g.mapleader = " "
 g.maplocalleader = " "
 
 -- file explorer
-vim.g.netrw_browse_split = 0
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25
+g.netrw_browse_split = 0
+g.netrw_banner = 0
+g.netrw_winsize = 25
 
 -- handle spaces and indents
 bo.shiftwidth = 4
@@ -87,3 +95,7 @@ opt.listchars:append("eol:↴")
 opt.listchars:append("extends:»")
 opt.listchars:append("precedes:«")
 opt.listchars:append("trail:•")
+
+-- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+-- delays and poor user experience.
+o.updatetime = 50

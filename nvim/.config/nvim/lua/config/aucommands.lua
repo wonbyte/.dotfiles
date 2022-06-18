@@ -31,7 +31,10 @@ autocmd({ "FileType typescriptreact" }, {
 -- highlight on yank
 autocmd({ "TextYankPost" }, {
   callback = function()
-    vim.highlight.on_yank()
+    vim.highlight.on_yank({
+      higroup = "IncSearch",
+      timeout = 40,
+    })
   end,
   group = "Highlights",
   pattern = "*",
