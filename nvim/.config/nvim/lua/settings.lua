@@ -75,16 +75,6 @@ set wildignore+=**/.git/*
 set wildignore+=**/node_modules/*
 ]])
 
--- highlight on yank
-local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
-vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = "*",
-})
-
 -- set list characters
 opt.list = false
 opt.listchars:append("space:⋅")

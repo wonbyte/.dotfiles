@@ -9,3 +9,5 @@ require("plugins")
 
 -- lsp setup
 require("lsp")
+
+require("config.aucommands")
