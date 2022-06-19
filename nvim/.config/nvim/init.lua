@@ -1,4 +1,4 @@
--- basic settings
+-- sensible settings
 require("settings")
 
 -- sensible keymappings
@@ -10,4 +10,5 @@ require("plugins")
 -- lsp setup
 require("lsp")
 
+-- custom commands
 require("config.aucommands")

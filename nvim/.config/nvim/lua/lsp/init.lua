@@ -20,7 +20,12 @@ local on_attach = function(_, bufnr)
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-  vim.keymap.set("n", "<leader>so", require("telescope.builtin").lsp_document_symbols, opts)
+  vim.keymap.set(
+    "n",
+    "<leader>so",
+    require("telescope.builtin").lsp_document_symbols,
+    opts
+  )
   vim.keymap.set("n", "<leader>f", vim.lsp.buf.formatting, opts)
 
   -- show line diagnostics automatically in hover window
@@ -29,7 +34,12 @@ local on_attach = function(_, bufnr)
     callback = function()
       local hover_opts = {
         focusable = false,
-        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        close_events = {
+          "BufLeave",
+          "CursorMoved",
+          "InsertEnter",
+          "FocusLost",
+        },
         border = "rounded",
         source = "always",
         prefix = " ",
@@ -41,7 +51,9 @@ local on_attach = function(_, bufnr)
 end
 
 -- enable cmp
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").update_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+)
 
 -- snippet support
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -93,11 +105,14 @@ require("lspconfig").rust_analyzer.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   handlers = {
-    ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-      -- Disable virtual_text
-      virtual_text = false,
-      severity_sort = true,
-    }),
+    ["textDocument/publishDiagnostics"] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics,
+      {
+        -- Disable virtual_text
+        virtual_text = false,
+        severity_sort = true,
+      }
+    ),
   },
   settings = {
     ["rust-analyzer"] = {
@@ -140,7 +155,13 @@ require("lspconfig").diagnosticls.setup({
           ".eslintrc.json",
         },
         debounce = 100,
-        args = { "--stdin", "--stdin-filename", "%filepath", "--format", "json" },
+        args = {
+          "--stdin",
+          "--stdin-filename",
+          "%filepath",
+          "--format",
+          "json",
+        },
         sourceName = "eslint_d",
         parseJson = {
           errorsRoot = "[0].messages",

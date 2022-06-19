@@ -32,7 +32,6 @@ local function lsp_progress(_, is_active)
     table.insert(status, (msg.percentage or 0) .. "%% " .. title)
   end
 
-
   return table.concat(status, "  ") .. " " .. spinners[frame + 1]
 end
 
@@ -79,7 +78,11 @@ require("lualine").setup({
     lualine_a = { "mode" },
     lualine_b = { "diff" },
     lualine_c = {
-      { "filename", path = 1, symbols = { modified = "  ", readonly = "" } },
+      {
+        "filename",
+        path = 1,
+        symbols = { modified = "  ", readonly = "" },
+      },
     },
 
     lualine_x = {}, -- { "diagnostics", sources = { "nvim_diagnostic" } } },

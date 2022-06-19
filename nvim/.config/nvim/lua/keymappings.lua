@@ -18,7 +18,7 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 -- toggle to enable/disable mouse mode
-ToggleMouse = function()
+local ToggleMouse = function()
   if vim.o.mouse == "a" then
     vim.o.mouse = "v"
     print("Mouse disabled")
@@ -41,11 +41,17 @@ vim.keymap.set("n", "<leader>gc", require("telescope.builtin").git_commits)
 vim.keymap.set("n", "<leader>gs", require("telescope.builtin").git_status)
 
 -- find files current buffer
-vim.keymap.set("n", "<leader>fb", require("telescope.builtin").current_buffer_fuzzy_find)
+vim.keymap.set(
+  "n",
+  "<leader>fb",
+  require("telescope.builtin").current_buffer_fuzzy_find
+)
 
 -- find files
 vim.keymap.set("n", "<leader>ff", function()
-  require("telescope.builtin").find_files({ file_ignore_patterns = { ".git", "target", "node_modules" } })
+  require("telescope.builtin").find_files({
+    file_ignore_patterns = { ".git", "target", "node_modules" },
+  })
 end)
 
 -- live grep
