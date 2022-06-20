@@ -20,12 +20,6 @@ local on_attach = function(_, bufnr)
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-  vim.keymap.set(
-    "n",
-    "<leader>so",
-    require("telescope.builtin").lsp_document_symbols,
-    opts
-  )
   vim.keymap.set("n", "<leader>f", vim.lsp.buf.formatting, opts)
 
   -- show line diagnostics automatically in hover window
@@ -113,16 +107,6 @@ require("lspconfig").rust_analyzer.setup({
         severity_sort = true,
       }
     ),
-  },
-  settings = {
-    ["rust-analyzer"] = {
-      cargo = { allFeatures = true },
-      completion = {
-        postfix = {
-          enable = false,
-        },
-      },
-    },
   },
 })
 
