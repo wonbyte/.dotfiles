@@ -21,27 +21,6 @@ local on_attach = function(_, bufnr)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
   vim.keymap.set("n", "<leader>f", vim.lsp.buf.formatting, opts)
-
-  -- show line diagnostics automatically in hover window
-  vim.api.nvim_create_autocmd("CursorHold", {
-    buffer = bufnr,
-    callback = function()
-      local hover_opts = {
-        focusable = false,
-        close_events = {
-          "BufLeave",
-          "CursorMoved",
-          "InsertEnter",
-          "FocusLost",
-        },
-        border = "rounded",
-        source = "always",
-        prefix = " ",
-        scope = "cursor",
-      }
-      vim.diagnostic.open_float(nil, hover_opts)
-    end,
-  })
 end
 
 -- enable cmp
