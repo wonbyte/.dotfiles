@@ -39,6 +39,9 @@ alias vi="nvim"
 alias vim="nvim"
 
 # exports
+path=(~/.local/bin $path)
+export PATH
+
 export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 export DOTFILES=$HOME/.dotfiles
 export VAULT_ADDR=https://prod.vault.conde.io:443
