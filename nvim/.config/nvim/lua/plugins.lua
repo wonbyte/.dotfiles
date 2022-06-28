@@ -2,13 +2,11 @@ return require("packer").startup(function(use)
   -- packer can manage itself
   use("wbthomason/packer.nvim")
 
-  -- lsp config/installer
-  use({
-    "williamboman/nvim-lsp-installer",
-    requires = {
-      "neovim/nvim-lspconfig",
-    },
-  })
+  -- lsp config
+  use("neovim/nvim-lspconfig")
+
+  -- lsp installer
+  use("williamboman/nvim-lsp-installer")
 
   -- autopairs
   use({

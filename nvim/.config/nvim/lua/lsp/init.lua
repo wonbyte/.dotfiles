@@ -36,6 +36,17 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   properties = { "documentation", "detail", "additionalTextEdits" },
 }
 
+-- lsp binaries
+require("nvim-lsp-installer").setup({
+  ensure_installed = {
+    "diagnosticls",
+    "eslint",
+    "rust_analyzer",
+    "sumneko_lua",
+    "tsserver",
+  },
+})
+
 -- lua
 -- make runtime files discoverable to the server
 local runtime_path = vim.split(package.path, ";")
