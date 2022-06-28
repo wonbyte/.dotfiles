@@ -149,16 +149,16 @@ require("lspconfig").diagnosticls.setup({
           ".eslintrc.json",
         },
       },
-      prettier = {
-        command = "prettier",
-        args = { "--stdin", "--stdin-filepath", "%filepath" },
-        rootPatterns = {
-          ".prettierrc",
-          ".prettierrc.json",
-          ".prettierrc.js",
-          "prettier.config.js",
-        },
-      },
+      -- prettier = {
+      --   command = "prettier",
+      --   args = { "--stdin", "--stdin-filepath", "%filepath" },
+      --   rootPatterns = {
+      --     ".prettierrc",
+      --     ".prettierrc.json",
+      --     ".prettierrc.js",
+      --     "prettier.config.js",
+      --   },
+      -- },
       stylua = {
         command = "stylua",
         args = { "-" },
@@ -167,11 +167,11 @@ require("lspconfig").diagnosticls.setup({
       },
     },
     formatFiletypes = {
-      javascript = "prettier",
-      javascriptreact = "prettier",
+      javascript = "eslint_d",
+      javascriptreact = "eslint_d",
       lua = "stylua",
-      typescript = "prettier",
-      typescriptreact = "prettier",
+      typescript = "eslint_d",
+      typescriptreact = "eslint_d",
     },
   },
 })
