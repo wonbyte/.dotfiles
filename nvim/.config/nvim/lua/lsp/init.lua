@@ -100,6 +100,9 @@ require("lspconfig").tsserver.setup({
   capabilities = capabilities,
 })
 
+-- terraformls
+require'lspconfig'.terraformls.setup{}
+
 -- diagnosticls
 require("lspconfig").diagnosticls.setup({
   filetypes = {
