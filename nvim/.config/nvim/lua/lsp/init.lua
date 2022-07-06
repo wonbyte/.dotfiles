@@ -101,7 +101,7 @@ require("lspconfig").tsserver.setup({
 })
 
 -- terraformls
-require'lspconfig'.terraformls.setup{}
+require("lspconfig").terraformls.setup({})
 
 -- diagnosticls
 require("lspconfig").diagnosticls.setup({

@@ -31,7 +31,7 @@ function ToggleMouse()
 end
 
 -- toggle mouse
-set("n", "<F10>", "<cmd>lua ToggleMouse<CR>")
+set("n", "<F10>", "<cmd>lua ToggleMouse()<CR>")
 
 -- git branches
 set("n", "<leader>gb", require("telescope.builtin").git_branches)
@@ -43,11 +43,7 @@ set("n", "<leader>gc", require("telescope.builtin").git_commits)
 set("n", "<leader>gs", require("telescope.builtin").git_status)
 
 -- find files current buffer
-set(
-  "n",
-  "<leader>fb",
-  require("telescope.builtin").current_buffer_fuzzy_find
-)
+set("n", "<leader>fb", require("telescope.builtin").current_buffer_fuzzy_find)
 
 -- find files
 set("n", "<leader>ff", function()
