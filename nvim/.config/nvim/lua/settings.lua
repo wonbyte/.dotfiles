@@ -18,7 +18,7 @@ vim.opt.relativenumber = true
 -- keep some room around cursor
 vim.opt.scrolloff = 8
 
--- make cmd line little taller
+-- cmd line height
 vim.opt.cmdheight = 1
 
 -- no swap file
@@ -32,9 +32,6 @@ vim.opt.undofile = false
 
 -- incremental live completion
 vim.opt.inccommand = "nosplit"
-
--- do not save when switching buffers
-vim.opt.hidden = false
 
 -- avoid showing message extra message when using completion
 vim.opt.shortmess:append("c")
