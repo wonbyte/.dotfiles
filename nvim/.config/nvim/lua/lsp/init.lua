@@ -1,3 +1,5 @@
+local lspconf = require("lspconfig")
+
 -- use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(_, bufnr)
@@ -53,7 +55,7 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-require("lspconfig").sumneko_lua.setup({
+lspconf.sumneko_lua.setup({
   on_attach = function(client, bufnr)
     -- disable formatting, use diagnosticls
     client.resolved_capabilities.document_formatting = false
@@ -85,13 +87,13 @@ require("lspconfig").sumneko_lua.setup({
 })
 
 -- rust
-require("lspconfig").rust_analyzer.setup({
+lspconf.rust_analyzer.setup({
   on_attach = on_attach,
   capabilities = capabilities,
 })
 
 -- js/ts
-require("lspconfig").tsserver.setup({
+lspconf.tsserver.setup({
   on_attach = function(client, bufnr)
     -- disable formatting, use diagnosticls
     client.resolved_capabilities.document_formatting = false
@@ -101,10 +103,10 @@ require("lspconfig").tsserver.setup({
 })
 
 -- terraformls
-require("lspconfig").terraformls.setup({})
+lspconf.terraformls.setup({})
 
 -- diagnosticls
-require("lspconfig").diagnosticls.setup({
+lspconf.diagnosticls.setup({
   filetypes = {
     "javascript",
     "javascriptreact",
