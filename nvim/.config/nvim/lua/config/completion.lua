@@ -41,8 +41,6 @@ local kind_icons = {
   Variable = " ",
 }
 
-vim.o.completeopt = "menu,menuone,noselect"
-
 cmp.setup({
   -- enable lsp snippets
   snippet = {

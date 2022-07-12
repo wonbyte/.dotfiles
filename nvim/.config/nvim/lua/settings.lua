@@ -1,72 +1,78 @@
+local g = vim.g
+local opt = vim.opt
+
 -- leader key
-vim.g.mapleader = " "
+g.mapleader = " "
 
 -- file explorer
-vim.g.netrw_browse_split = 0
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25
+g.netrw_browse_split = 0
+g.netrw_banner = 0
+g.netrw_winsize = 25
 
 -- rgb colors
-vim.opt.termguicolors = true
+opt.termguicolors = true
+
+-- insert mode completion
+vim.opt.completeopt = "menu,menuone,noselect"
 
 -- line numbers
-vim.opt.number = true
+opt.number = true
 
 -- realative line numbers
-vim.opt.relativenumber = true
+opt.relativenumber = true
 
 -- keep some room around cursor
-vim.opt.scrolloff = 8
+opt.scrolloff = 8
 
 -- cmd line height
-vim.opt.cmdheight = 1
+opt.cmdheight = 1
 
 -- no swap file
-vim.opt.swapfile = false
+opt.swapfile = false
 
 -- no backup file
-vim.opt.backup = false
+opt.backup = false
 
 -- no undo file
-vim.opt.undofile = false
+opt.undofile = false
 
 -- incremental live completion
-vim.opt.inccommand = "nosplit"
+opt.inccommand = "nosplit"
 
 -- avoid showing message extra message when using completion
-vim.opt.shortmess:append("c")
+opt.shortmess:append("c")
 
 -- case insensitive searching UNLESS /C or capital in search
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+opt.ignorecase = true
+opt.smartcase = true
 
 -- longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 -- delays and poor user experience.
-vim.opt.updatetime = 50
+opt.updatetime = 50
 
 -- 80 character lines
-vim.opt.signcolumn = "yes"
-vim.opt.colorcolumn = "80"
+opt.signcolumn = "yes"
+opt.colorcolumn = "80"
 
 -- enable system clipboard
-vim.opt.clipboard = "unnamedplus"
+opt.clipboard = "unnamedplus"
 
 -- handle spaces and indents
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.smartindent = true
-vim.opt.shiftround = true
-vim.opt.smartcase = true
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
+opt.smartindent = true
+opt.shiftround = true
+opt.smartcase = true
 
 -- set list characters
-vim.opt.listchars:append("space:⋅")
-vim.opt.listchars:append("eol:↴")
-vim.opt.listchars:append("extends:»")
-vim.opt.listchars:append("precedes:«")
-vim.opt.listchars:append("trail:•")
+opt.listchars:append("space:⋅")
+opt.listchars:append("eol:↴")
+opt.listchars:append("extends:»")
+opt.listchars:append("precedes:«")
+opt.listchars:append("trail:•")
 
 -- command line completion
-vim.opt.wildmode = "longest,list,full"
-vim.opt.wildignore = { "*/.git/*", "*/node_modules/*", "*/target/*" }
+opt.wildmode = "longest,list,full"
+opt.wildignore = { "*/.git/*", "*/node_modules/*", "*/target/*" }
