@@ -13,7 +13,7 @@ g.netrw_winsize = 25
 opt.termguicolors = true
 
 -- insert mode completion
-vim.opt.completeopt = "menu,menuone,noselect"
+opt.completeopt = "menu,menuone,noselect"
 
 -- line numbers
 opt.number = true
