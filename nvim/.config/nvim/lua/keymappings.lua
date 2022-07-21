@@ -34,7 +34,7 @@ end
 set("n", "<F10>", "<cmd>lua ToggleMouse()<CR>")
 
 -- git branches
-set("n", "<leader>gb", require("telescope.builtin").git_branches)
+set("n", "<leader>gb", require("config.finder").git_branches)
 
 -- git commits
 set("n", "<leader>gc", require("telescope.builtin").git_commits)

@@ -1,3 +1,5 @@
+local actions = require("telescope.actions")
+
 require("telescope").setup({
   defaults = {
     vimgrep_arguments = {
@@ -38,6 +40,16 @@ M.search_dotfiles = function()
     prompt_title = "< VimRC > ",
     cwd = vim.env.DOTFILES,
     hidden = true,
+  })
+end
+
+M.git_branches = function()
+  require("telescope.builtin").git_branches({
+    attach_mappings = function(_, map)
+      map("i", "<c-d>", actions.git_delete_branch)
+      map("n", "<c-d>", actions.git_delete_branch)
+      return true
+    end,
   })
 end
 
