@@ -20,7 +20,7 @@ set("v", "<", "<gv")
 set("v", ">", ">gv")
 
 -- enable/disable mouse
-function ToggleMouse()
+set("n", "<F10>", function()
   if vim.o.mouse == "a" then
     vim.o.mouse = "v"
     print("Mouse disabled")
@@ -28,10 +28,10 @@ function ToggleMouse()
     vim.o.mouse = "a"
     print("Mouse enabled")
   end
-end
+end)
 
--- toggle mouse
-set("n", "<F10>", "<cmd>lua ToggleMouse()<CR>")
+-- search dotfiles
+set("n", "<leader>rc", require("config.finder").search_dotfiles)
 
 -- git branches
 set("n", "<leader>gb", require("config.finder").git_branches)
@@ -57,9 +57,6 @@ set("n", "<leader>fg", require("telescope.builtin").live_grep)
 
 -- buffers
 set("n", "<leader>cb", require("telescope.builtin").buffers)
-
--- search dotfiles
-set("n", "<leader>rc", require("config.finder").search_dotfiles)
 
 -- grep word under cursor
 set("n", "<leader>gw", require("telescope.builtin").grep_string)

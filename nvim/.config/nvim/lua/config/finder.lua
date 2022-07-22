@@ -1,6 +1,10 @@
+local telescope = require("telescope")
 local actions = require("telescope.actions")
+local builtin = require("telescope.builtin")
+local previewers = require("telescope.previewers")
+local sorters = require("telescope.sorters")
 
-require("telescope").setup({
+telescope.setup({
   defaults = {
     vimgrep_arguments = {
       "rg",
@@ -11,13 +15,13 @@ require("telescope").setup({
       "--column",
       "--smart-case",
     },
-    file_sorter = require("telescope.sorters").get_fzy_sorter,
+    file_sorter = sorters.get_fzy_sorter,
     prompt_prefix = " >",
     color_devicons = true,
 
-    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-    grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-    qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+    file_previewer = previewers.vim_buffer_cat.new,
+    grep_previewer = previewers.vim_buffer_vimgrep.new,
+    qflist_previewer = previewers.vim_buffer_qflist.new,
   },
   extensions = {
     fzf = {
@@ -31,11 +35,11 @@ require("telescope").setup({
 
 -- to get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
-require("telescope").load_extension("fzf")
+telescope.load_extension("fzf")
 
 local M = {}
 M.search_dotfiles = function()
-  require("telescope.builtin").find_files({
+  builtin.find_files({
     file_ignore_patterns = { ".git/" },
     prompt_title = "< VimRC > ",
     cwd = vim.env.DOTFILES,
@@ -44,7 +48,7 @@ M.search_dotfiles = function()
 end
 
 M.git_branches = function()
-  require("telescope.builtin").git_branches({
+  builtin.git_branches({
     attach_mappings = function(_, map)
       map("i", "<c-d>", actions.git_delete_branch)
       map("n", "<c-d>", actions.git_delete_branch)
