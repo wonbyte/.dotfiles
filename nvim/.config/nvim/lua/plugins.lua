@@ -67,6 +67,15 @@ return require("packer").startup(function(use)
     end,
   })
 
+  -- codeactions
+  use({
+    "kosayoda/nvim-lightbulb",
+    requires = "antoinemadec/FixCursorHold.nvim",
+    config = function ()
+      require("config.lightbulb")
+    end
+  })
+
   -- theme
   use({
     "folke/tokyonight.nvim",
