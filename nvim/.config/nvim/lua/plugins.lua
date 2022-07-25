@@ -84,5 +84,13 @@ return require("packer").startup(function(use)
     end,
   })
 
+  -- progress spinners
+  use({
+    "j-hui/fidget.nvim",
+    config = function()
+      require"fidget".setup{}
+    end,
+  })
+
   -- use("~/src/personnel/plugins/stackmap.nvim/")
 end)
