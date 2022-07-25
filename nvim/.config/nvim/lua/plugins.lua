@@ -67,13 +67,13 @@ return require("packer").startup(function(use)
     end,
   })
 
-  -- codeactions
+  -- lightbuld (codeactions)
   use({
     "kosayoda/nvim-lightbulb",
     requires = "antoinemadec/FixCursorHold.nvim",
-    config = function ()
-      require("config.lightbulb")
-    end
+    config = function()
+      require("nvim-lightbulb").setup({ autocmd = { enabled = true } })
+    end,
   })
 
   -- theme
@@ -83,4 +83,6 @@ return require("packer").startup(function(use)
       require("config.theme")
     end,
   })
+
+  -- use("~/src/personnel/plugins/stackmap.nvim/")
 end)

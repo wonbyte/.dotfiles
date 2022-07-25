@@ -9,6 +9,9 @@ g.netrw_browse_split = 0
 g.netrw_banner = 0
 g.netrw_winsize = 25
 
+-- https://github.com/antoinemadec/FixCursorHold.nvim#configuration
+g.cursorhold_updatetime = 100
+
 -- rgb colors
 opt.termguicolors = true
 

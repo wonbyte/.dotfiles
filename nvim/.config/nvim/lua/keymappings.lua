@@ -1,5 +1,11 @@
 local set = vim.keymap.set
 
+-- global for working with lua
+P = function(v)
+  print(vim.inspect(v))
+  return v
+end
+
 -- clear highlights
 set("n", "<C-h>", "<cmd>noh<CR>")
 
@@ -63,6 +69,9 @@ set("n", "<leader>gw", require("telescope.builtin").grep_string)
 
 -- telescopic johnson approved
 set("n", "<leader>hh", ":Telescope help_tags<CR>")
+
+-- testing
+set("n", ",t", "<Plug>PlenaryTestFile")
 
 -- see `:help vim.diagnostic.*` for documentation on any of the below functions
 set("n", "<leader>e", vim.diagnostic.open_float)
