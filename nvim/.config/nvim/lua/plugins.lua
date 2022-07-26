@@ -31,7 +31,7 @@ return require("packer").startup(function(use)
       { "rust-lang/vscode-rust" },
     },
     config = function()
-      require("config.completion")
+      require("config.compe")
     end,
   })
 
@@ -40,7 +40,7 @@ return require("packer").startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     config = function()
-      require("config.highlighting")
+      require("config.treesitter")
     end,
   })
 
@@ -52,7 +52,7 @@ return require("packer").startup(function(use)
     "nvim-telescope/telescope.nvim",
     requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
     config = function()
-      require("config.finder")
+      require("config.telescope")
     end,
   })
 
@@ -63,7 +63,7 @@ return require("packer").startup(function(use)
     "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
     config = function()
-      require("config.statusbar")
+      require("config.lualine")
     end,
   })
 
@@ -80,7 +80,7 @@ return require("packer").startup(function(use)
   use({
     "folke/tokyonight.nvim",
     config = function()
-      require("config.theme")
+      require("config.tokyonight")
     end,
   })
 

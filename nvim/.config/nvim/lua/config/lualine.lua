@@ -76,12 +76,18 @@ require("lualine").setup({
   },
   sections = {
     lualine_a = { "mode" },
-    lualine_b = { "diff" },
+    lualine_b = {},
     lualine_c = {
+      {
+        "filetype",
+        icon_only = true,
+        separator = "",
+        padding = { left = 1, right = 0 },
+      },
       {
         "filename",
         path = 1,
-        symbols = { modified = "  ", readonly = "" },
+        symbols = { modified = "  ", readonly = "", unnamed = "" },
       },
     },
 

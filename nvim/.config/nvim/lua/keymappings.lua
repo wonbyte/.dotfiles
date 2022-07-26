@@ -37,10 +37,10 @@ set("n", "<F10>", function()
 end)
 
 -- search dotfiles
-set("n", "<leader>rc", require("config.finder").search_dotfiles)
+set("n", "<leader>rc", require("config.telescope").search_dotfiles)
 
 -- git branches
-set("n", "<leader>gb", require("config.finder").git_branches)
+set("n", "<leader>gb", require("config.telescope").git_branches)
 
 -- git commits
 set("n", "<leader>gc", require("telescope.builtin").git_commits)
