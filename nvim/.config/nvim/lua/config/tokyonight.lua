@@ -1,9 +1,22 @@
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_italic_functions = true
-vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
+local g = vim.g
 
--- change the "hint" color to the "orange" color, and make the "error" color bright red
-vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
+-- style variant
+g.tokyonight_style = "night"
+-- set a darker background on sidebar-like windows.
+g.tokyonight_sidebars = {
+  "qf",
+  "vista_kind",
+  "terminal",
+  "packer",
+  "spectre_panel",
+  "NeogitStatus",
+  "help",
+}
+-- hide inactive statuslines and replace them with a thin border instead. 
+g.tokyonight_hide_inactive_statusline = true
+-- sidebar like windows like nvimTree get a darker background
+g.tokyonight_dark_sidebar = true
+-- float windows like the lsp diagnostics windows get a darker background.
+g.tokyonight_dark_float = true
 
--- load the colorscheme
-vim.cmd([[colorscheme tokyonight]])
+require("tokyonight").colorscheme()
