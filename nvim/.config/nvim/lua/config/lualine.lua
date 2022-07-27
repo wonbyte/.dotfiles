@@ -76,7 +76,7 @@ require("lualine").setup({
   },
   sections = {
     lualine_a = { "mode" },
-    lualine_b = {},
+    lualine_b = { "diff" },
     lualine_c = {
       {
         "filetype",
