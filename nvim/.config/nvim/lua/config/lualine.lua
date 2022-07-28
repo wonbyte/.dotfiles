@@ -92,7 +92,7 @@ require("lualine").setup({
     },
 
     lualine_x = {}, -- { "diagnostics", sources = { "nvim_diagnostic" } } },
-    lualine_y = {}, -- lsp_name }, lsp_progress },
+    lualine_y = { "branch" }, -- lsp_name }, lsp_progress },
     lualine_z = { "location" },
   },
   inactive_sections = {
