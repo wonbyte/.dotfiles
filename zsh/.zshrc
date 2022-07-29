@@ -31,6 +31,9 @@ load-nvmrc
 # load antigen configurations
 antigen init ~/.antigenrc
 
+# ensures all previous lines matching the current command are removed from history before the current command is saved.
+setopt HIST_IGNORE_ALL_DUPS
+
 # aliases
 alias clr="clear"
 alias hist="history | less"
