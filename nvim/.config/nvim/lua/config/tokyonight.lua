@@ -8,8 +8,6 @@ g.tokyonight_sidebars = {
   "vista_kind",
   "terminal",
   "packer",
-  "spectre_panel",
-  "NeogitStatus",
   "help",
 }
 -- hide inactive statuslines and replace them with a thin border instead. 
