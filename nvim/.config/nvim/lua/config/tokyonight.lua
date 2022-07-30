@@ -17,4 +17,4 @@ g.tokyonight_dark_sidebar = true
 -- float windows like the lsp diagnostics windows get a darker background.
 g.tokyonight_dark_float = true
 
-require("tokyonight").colorscheme()
+vim.cmd[[colorscheme tokyonight]]
