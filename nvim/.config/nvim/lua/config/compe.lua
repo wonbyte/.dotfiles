@@ -90,11 +90,6 @@ cmp.setup({
       end
     end, { "i", "s" }),
   }),
-  experimental = {
-    ghost_text = {
-      hl_group = "LspCodeLens",
-    },
-  },
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
@@ -104,8 +99,8 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "vsnip" },
     { name = "buffer" },
-    { name = "path" },
   }, {
+    { name = "path" },
     { name = "nvim_lua" },
     { name = "nvim_lsp_signature_help" },
   }),
