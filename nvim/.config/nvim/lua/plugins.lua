@@ -31,7 +31,7 @@ return require("packer").startup(function(use)
       { "rust-lang/vscode-rust" },
     },
     config = function()
-      require("config.compe")
+      require("config.cmp")
     end,
   })
 
